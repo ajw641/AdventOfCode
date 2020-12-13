@@ -18,6 +18,7 @@
 #define prnd(x) printf("%d\n", x)
 #define prnh(x) printf("%X\n", x)
 #define prns(x) printf("%s\n", x.c_str())
+#define prnc(x) printf("%c\n", x)
 
 
 using namespace std;
