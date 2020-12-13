@@ -1,5 +1,11 @@
 #include "..\AlexTemplate.h"
 
+
+/*
+You may be wondering - why the hell did i do it like this...
+And tbh its currently 02:28am and i have no idea but it works..
+*/
+
 struct ca
 {
     char a[32];
