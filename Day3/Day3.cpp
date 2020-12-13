@@ -19,22 +19,19 @@ void readInput(string filename, vector<ca>* inputV)
 	}
 }
 
-int traverseMap(vector<ca>* treeMap)
+int traverseMap(vector<ca>* treeMap, int right, int down)
 {
     int numberOfTrees = 0;
     int column = 0;
     for0(row, (*treeMap).size())
     {
         char currentSpot = (*treeMap)[row].a[column];
-        if(row<12)
-        {
-        prnc(currentSpot);
-        }
         if(currentSpot == '#')
         {
             numberOfTrees ++;
         }
-        column = (column + 3) % 31;
+        column = (column + right) % 31;
+        row = row + (down-1);
     }
     return numberOfTrees;
 }
@@ -43,7 +40,12 @@ int main()
 {
     vector<ca> treeMap;
     readInput("puzzleInput.txt", &treeMap);
-    int result = traverseMap(&treeMap);
-    prnd(result);
+    unsigned int slope1 = traverseMap(&treeMap, 1, 1);
+    unsigned int slope2 = traverseMap(&treeMap, 3, 1);
+    unsigned int slope3 = traverseMap(&treeMap, 5, 1);
+    unsigned int slope4 = traverseMap(&treeMap, 7, 1);
+    unsigned int slope5 = traverseMap(&treeMap, 1, 2);
+    uint64 answer = slope1*slope2*slope3*slope4*slope5;
+    printf("%lld\n", answer);
     return 0;
 }
